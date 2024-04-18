@@ -16,7 +16,7 @@ public class SampleAspect {
         System.out.println(new SimpleDateFormat("yyyy/MM/dd").format(new java.util.Date()));
         System.out.println(String.format("메서드:%s", joinPoint.getSignature().getName()));
     }
-   // @After("execution(* com.example.demo.chapter03.used.*Greet.*(..))")
+   //@After("execution(* com.example.demo.chapter03.used.*Greet.*(..))")
     public void afterAdvice(JoinPoint joinPoint){
         System.out.println("===== After Advice =====");
         System.out.println(new SimpleDateFormat("yyyy/MM/dd").format(new java.util.Date()));
