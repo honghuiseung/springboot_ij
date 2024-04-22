@@ -1,0 +1,424 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{commons/layout}">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="Generator" content="Notepad++" />
+	<meta name="Author" content="홍희승"/>
+	<meta name="Keywords" content="홍희승, HongHuiSeung, 포트폴리오, 홍희승 포트폴리오, portfolio, huiseung's portfolio, 프로젝트, Project, 홍 희승, 홍 희 승, 희승 홍, 희승, ghd, gml, tmd, gmltmd, HTML5, CSS3, jQuery, 오라클, Oracle , 반응형웹, 반응형웹 포트폴리오, 학생 포트폴리오"/>
+	<meta name="Description" content="홍희승의 포트폴리오 사이트입니다. 방문해 주셔서 감사합니다." />
+	<title>정부24</title>
+	<link rel="stylesheet" href="./css/common.css"/>
+	<link rel="stylesheet" href="./css/style.css"/>
+	<script src="./js/jquery-1.9.1.min.js"></script>
+	<script src="./js/jquery.easing.1.3.min.js"></script>
+	<script src="./js/tool_tip.js"></script>
+	<script src="./js/script.js"></script>
+	<script src="./js/common.js"></script>
+	<script src="./js/login_time.js"></script>
+</head>
+<body>
+
+	<div id="wrap">
+		<h1>메인페이지입니다.</h1>
+		<section id="section" layout:fragment="content">
+			<div id="section_top" class="center">
+				<div id="section_top_left" class="fl division_area_left">
+					<div id="banner">
+						<!-- <img src="images/MB_20240116_01.jpg" width="100%" alt="이미지입니다."/> -->
+						<div class="banner_button">
+							<div class="number"><span>1</span>/<span>2</span></div>
+							<img class="prev" src="./images/ico-swiper-prev.png" alt="이전"/>
+							<img class="stop" src="./images/ico-swiper-stop.png" alt="멈춤"/>
+							<img class="next" src="./images/ico-swiper-next.png" alt="다음"/>
+						</div>
+					</div><!-- nav end -->
+					<div id="search_option" class="fl cb">
+						<div class="title">자주찾는 검색</div>
+						<div class="select_wrap fl">
+							<div class="select cf"> 
+								<div class="select_left fl">
+									<a href="#" class="first fl"><span>1</span>주민등록등본</a>
+									<a href="#" class="fl"><span>2</span>가족관계증명서</a>
+									<a href="#" class="fl"><span>3</span>세목별과세증명서</a>
+									<a href="#" class="fl"><span>4</span>전입신고</a>
+								</div>
+								<img src="./images/ico_arrow_down.png" alt="아래화살표"/>
+							</div>
+							<div class="select_menu">
+								<ul>
+									<li><a href="#"><span>1</span>주민등록등본</a></li>
+									<li><a href="#"><span>2</span>가족관계증명서</a></li>
+									<li><a href="#"><span>3</span>세목별과세증명서</a></li>
+									<li><a href="#"><span>4</span>전입신고</a></li>
+									<li class="last"><a href="#"><span>5</span>여권재발급</a></li>
+								</ul>
+							</div>
+						</div>
+					</div><!-- search_option end -->
+					<div id="search_box" class="fl">
+						<form action="#" method="get" class="fl">
+								<input type="text" placeholder="찾으시는 서비스를 입력하세요" name="search_text" id="search_text"/>
+						</form>
+						<div class="button fl"></div>
+					</div><!-- search_box end -->
+				</div><!-- section_top_left end -->
+				<div id="section_top_right" class="division_area_right">
+					<ul id="login_wrap">
+						<li class="login_yet">
+							<form action="get" id="login_form" class="fl cf">
+								<div id="login_box" class="fl cf">
+									<p>
+										<label for="user_ID" class="labelStyle">아이디</label>
+										<input type="text" id="user_ID" class="guideText" value=" ID1234"/>
+									</p>
+									<p>
+										<label for="user_PWD" class="labelStyle">비밀번호</label>
+										<input type="text" id="user_PWD" class="guideText" value=" PW1234"/>
+									</p>
+								</div>
+								<p id="btn" class="fr cf">
+									<input type="checkbox" id="save_ID" value="saved_ID_yes" />
+									<label for="save_ID"><span>아이디저장</span></label>	
+								</p>
+							</form>
+							<a href="#" class="login_button fl cb">로그인</a>
+							<a href="#" class="login_help first fl">아이디찾기</a>
+							<a href="#" class="login_help fl">비밀번호찾기</a>
+							<a href="#" class="login_help last">회원가입</a>
+						</li>
+						<li class="login_done">
+							<span class="first">ID1234님 환영합니다.</span>
+							<span class="fl">로그아웃까지</span>
+							<span class="fl num_img num_m num"><span class="tenth">5</span><span class="unit">9</span></span>
+							<span class="fl num">분</span>
+							<span class="fl num_img num_s num"><span class="tenth">5</span><span class="unit">9</span></span>
+							<span class="fl num">초</span>
+							<span class="fl">남았습니다.</span>
+							<a href="#" class="logout_button fl cb">로그아웃</a>
+							<a href="#" class="login_help extend fr">로그인 연장하기</a>
+						</li>
+					</ul><!-- login_box end -->
+				</div><!-- section_top_right end -->
+			</div><!-- section_top end -->
+			<div id="section_middle">
+				<div id="contents_col1_wrap">
+					<div id="contents_col1" class="center">
+					<!-- 자주찾는 서비스 -->
+						<h2 class="title fl">자주찾는 서비스</h2>
+						
+						<a href="#" class="more subtitle">
+							<img class="fl" src="images/icon_more.png" alt="모아보기아이콘"/>
+							<div class="fl">모아보기</div>
+						</a>
+						<a href="#" class="favorite subtitle">
+							<img class="fl" src="images/ico-frequent.png" alt="설정아이콘"/>
+							<div class="fl">자주찾는 서비스 설정</div>
+						</a>
+						<a class="button_prev fl" href="#"></a>
+						<ul class="slide_group cf">
+							<li>
+								<a href="#" class="swiper_slide first fl cl">	
+									<div>발급</div>
+									<span>토지(임야)<br/>대장</span>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="swiper_slide fl">
+									<div>발급</div>
+									<span>주민등록등본<br/>(초본)</span>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="swiper_slide fl">
+									<div>발급</div>
+									<span>자동차<br/>등록원부</span>
+								</a>	
+							</li>
+							<li>
+								<a href="#" class="swiper_slide fl">
+									<div>발급</div>
+									<span>건축물대장</span>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="swiper_slide fl">
+									<div>발급</div>
+									<span>가족관계<br/>증명서</span>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="swiper_slide red fl">
+									<div>신청</div>
+									<span>여권 재발급</span>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="swiper_slide fl">
+									<div>발급</div>
+									<span>지방세<br/>납세증명</span>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="swiper_slide fl">
+									<div>발급</div>
+									<span>납세증명</span>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="swiper_slide fl">
+									<div>발급</div>
+									<span>지적도<br/>(임야도)</span>
+								</a>
+							</li>
+							<li>	
+								<a href="#" class="swiper_slide fl">
+									<div>발급</div>
+									<span>소득금액<br/>증명</span>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="swiper_slide fl">
+									<div>발급</div>
+									<span>토지이용<br/>계획확인</span>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="swiper_slide fl">
+									<div>발급</div>
+									<span>건강보험<br/>자격득실확인</span>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="swiper_slide fl">
+									<div>발급</div>
+									<span>농업경영체등록 <br/>확인서 교부</span>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="swiper_slide fl">
+									<div>발급</div>
+									<span>운전경력<br/>증명</span>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="swiper_slide fl">
+									<div>발급</div>
+									<span>사업자 등록<br/>증명</span>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="swiper_slide red fl">
+									<div>신청</div>
+									<span>대학교 졸업<br/>(예정) 증명</span>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="swiper_slide fl">
+									<div>발급</div>
+									<span>병적증명</span>
+								</a>
+							</li>
+						</ul>
+						<a class="button_next fl" href="#"></a>
+					</div><!-- contents_col1 end -->
+				</div>
+				<div id="contents_col2" class="center">
+				<!-- 원스톱 서비스 -->
+					<div id="contents_col2_left" class="fl division_area_left">
+						<h2 class="title">원스톱 서비스</h2>
+						<a href="#" class="subtitle1 subtitle">
+							<div class="fl">국가보훈부 나만의 예우</div>
+							<img class="fl" src="images/main_ico_newpage_blue.png" alt="새페이지아이콘"/>
+						</a>
+						<a href="#" class="subtitle2 subtitle">
+							<div class="fl">중소벤처24 기업생애주기서비스</div>
+							<img class="fl" src="images/main_ico_newpage_blue.png" alt="새페이지아이콘"/>
+						</a>
+						<ul class="fl cl">
+							<li class="button_prev fl "><a class="cf fl" href="#"></a></li>
+							<li class="swiper_slide swiper_slide1 fl">
+								<a href="#">
+									<div class="img"></div><div>전입신고+</div>
+								</a>
+							</li>
+							<li class="swiper_slide swiper_slide2 fl">
+								<a href="#">
+									<div class="img"></div><div>맘편한 임신</div>
+								</a>
+							</li>
+							<li class="swiper_slide swiper_slide3 fl">
+								<a href="#">
+									<div class="img"></div><div>행복출산</div>
+								</a>
+							</li>
+							<li class="swiper_slide swiper_slide4 fl">
+								<a href="#">
+									<div class="img"></div><div>온종일돌봄</div>
+								</a>
+							</li>
+							<li class="swiper_slide swiper_slide5 fl">
+								<a href="#">
+									<div class="img"></div><div>꿈청소년</div>
+								</a>
+							</li>
+							<li class="swiper_slide swiper_slide6 fl">
+								<a href="#">
+									<div class="img"></div><div>취업서류</div>
+								</a>
+							</li>
+							<li class="swiper_slide swiper_slide7 fl">
+								<a href="#">
+									<div class="img"></div><div>노후생활</div>
+								</a>
+							</li>
+							<li class="button_next fl"><a class="cf fl" href="#"></a></li>
+						</ul>
+					</div>
+				<!-- 공지사항 -->
+					<div id="contents_col2_right" class="division_area_right">
+						<h2 class="title">공지사항</h2>
+						<a href="#" class="plus">
+							<div class="fl">+</div>
+						</a>
+						<ul class="fl cl">
+							<li><a class="blue" href="#"><div class="img fl"></div>DDos공격 확산에 따른 개인 보안강화 안내</a></li>
+							<li><a class="blue" href="#"><div class="img"></div>정부24 유사사이트 주의 안내</a></li>
+							<li><a href="#" class="ellipsis">[어디서나대학민원]디지털서울문화예술대학교 졸업식으로 증명서 발급 제한</a><span>2024.02.07</span></li>
+							<li><a href="#" class="ellipsis">[어디서나대학민원]부산가톨릭대학교 대학민원 서비스 일시 중단 안내</a><span>2024.02.07</span></li>
+							<li><a href="#" class="ellipsis">html:5차세대 지방세정보시스템 개통에 따른 서비스 중단 안내</a><span>2024.02.05</span></li>
+						</ul>
+					</div>
+				</div><!-- contents_col2 end -->
+				<div id="contents_col3" class="center">
+				<!-- 보조금 24 -->
+					<div id="contents_col3_left" class="fl division_area_left">
+						<h2 class="title">보조금 24</h2>
+						<a href="#" class="plus">
+							<div class="fl">+</div>
+						</a>
+						<ul class="fl cl">
+							<li class="swiper_slide swiper_slide1 fl">
+								<a href="#">
+									<div class="img_ec"></div><div class="img"></div><div>로그인하고<br/>맞춤안내 조회하기</div>
+								</a>
+							</li>
+							<li class="swiper_slide swiper_slide2 fl">
+								<a href="#">
+									<div class="img_ec"></div><div class="img"></div><div>로그인없이<br/>간단하게 혜택찾기</div>
+								</a>
+							</li>
+							<li class="swiper_slide swiper_slide3 fl">
+								<a href="#">
+									<div class="img_ec"></div><div class="img"></div><div>1만여 개의<br/>전체혜택 보기</div>
+								</a>
+							</li>
+							<li class="swiper_slide swiper_slide4 fl">
+								<a href="#">
+									<div class="img_ec"></div><div class="img"></div><div>맞춤안내 조회<br/>이용방법 보기</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<!-- 날씨 -->
+					<div id="contents_col3_right" class="division_area_right">
+						<h2>오늘의 날씨 </h2>
+						<div class="icon_wrap fl">
+							<div class="gb_icon fl"></div>
+							<div class="gb_temp fl cl"></div>
+						</div>						
+						<div class="gb_date fl"></div>
+						<div class="weather_detail fl">
+							<div class="gb_hightemp">최고 <span></span></div>
+							<div class="gb_lowtemp">최저 <span></span></div>
+							<div class="gb_feels_like">체감 <span></span></div>
+							<div class="gb_humidity">습도 <span></span></div>
+						</div>
+					</div>
+				</div><!-- contents_col3 end -->
+				<div id="contents_col4" class="center">
+				<!-- 소제목 x -->
+					<div id="contents_col4_left" class="division_area_left fl">
+						<div class="box_right">
+							<h2 class="hidden">공지사항</h2>
+							<ul class="title">
+								<li class="first_tit fl on"><a href="#content1">정책뉴스</a></li>
+								<li class="fl"><a href="#content2">연구보고서</a></li>
+								<li class="fl"><a href="#content3">간행물</a></li>
+								<li class="fl"><a href="#content4">정책자료</a></li>
+								<li class="more">
+									<a href="#" class="plus">
+										<div class="fl">+</div>
+									</a>
+								</li>
+							</ul>
+							<ul id="content1" class="content fl cl">
+								<li class="first fl cl"><a href="#">경찰청장 2024 강원 동계청소년 올림픽 현장 점검 <br/><div class="text">2024.01.23</div></a></li>
+								<li class="fl cl"><a href="#">부산가톨릭대학교 대학민원 서비스 일시 중단 안내<br/><div class="text">2024.02.07</div></a></li>
+								<li class="fl cl"><a href="#">html:5차세대 지방세정보시스템 개통에 따른 서비스 중단 안내<br/><div class="text">2024.02.05</div></a></li>
+								<li class="fl cl"><a href="#">html:5차세대 지방세정보시스템 개통에 따른 서비스 중단 안내<br/><div class="text">2024.02.06</div></a></li>
+							</ul>
+							<ul id="content2" class="content fl cl">
+								<li class="first fl cl"><a href="#">2024년 진로교육 내실화 지원 계획<br/><div class="text">2024.02.21</div></a></li>
+								<li class="fl cl"><a href="#">2024년 독도교육 활성화 계획<br/><div class="text">2024.02.21</div></a></li>
+								<li class="fl cl"><a href="#">[회수]벨기에 Ansolive SRL, 리스테리아 존재 가능성으로 Louis 브랜드 과카몰리 회수<br/><div class="text">2024.02.20</div></a></li>
+								<li class="fl cl"><a href="#">호주 농림수산부, 알레르기 유발물질 의무표시 사항 변경(상기2)(IFN 01-24)<br/><div class="text">2024.02.20</div></a></li>
+							</ul>
+							<ul id="content3" class="content fl cl">
+								<li class="first fl cl"><a href="#">조례입법평가 현황<br/><div class="text">2024.02.21</div></a></li>
+								<li class="fl cl"><a href="#">SPREC 글로벌 이슈리포트, 2022. 6월호<br/><div class="text">2024.02.21</div></a></li>
+								<li class="fl cl"><a href="#">SPREC 글로벌 이슈리포트, 2022. 7월호<br/><div class="text">2024.02.21</div></a></li>
+								<li class="fl cl"><a href="#">SPREC 글로벌 이슈리포트, 2022. 8월호<br/><div class="text">2024.02.21</div></a></li>
+							</ul>
+							<ul id="content4" class="content fl cl">
+								<li class="first fl cl"><a href="#">일일 금융시장 동향[2.20일]<br/><div class="text">2024.02.20</div></a></li>
+								<li class="fl cl"><a href="#">2024년도 전자부품산업기술개발사업(첨단나노소재적용미래전략산업수요연계기술개발) 신규지원 대상과제 공고<br/><div class="text">2024.02.20</div></a></li>
+								<li class="fl cl"><a href="#">주간 금융시장 지표[2.12~16일]<br/><div class="text">2024.02.19</div></a></li>
+								<li class="fl cl"><a href="#"> 2024년도 열계면용방폭/방열세라믹갭필러소재개발사업 신규지원 대상과제 공고<br/><div class="text">2024.02.16</div></a></li>
+							</ul>
+						</div>
+						<a href="#">
+							<div class="box_left_top fl">
+								<div class="text_box">국고보조금<br/>부정수급 신고</div>
+							</div>
+						</a>
+						<a href="#">
+							<div class="box_left_bottom fl cl">
+								<div class="text_box">공공개방자원<br/>공유누리 서비스</div>
+							</div>
+						</a>
+					</div>
+					<div id="contents_col4_right" class="division_area_right">
+						<div class="banner1 banner fl"></div>
+						<div class="banner2 banner fl"></div>
+						<div class="banner3 banner fl"></div>
+						<div class="banner_button">
+							<div class="number"><span>1</span>/<span>3</span></div>
+							<img class="prev" src="images/ico-swiper-prev.png" alt="이전"/>
+							<img  class="stop" src="images/ico-swiper-stop.png" alt="멈춤"/>
+							<img  class="next" src="images/ico-swiper-next.png" alt="다음"/>
+						</div>
+					</div>
+				</div><!-- contents_col4 end -->
+			</div><!-- section_middle end -->
+			<div id="section_bottom" class="center">
+				<div id="contents_channel" class="cf">
+				<div class="title">국민소통채널</div>
+				<ul>
+					<li class="button_prev fl"><a href="#"></a></li>
+					<li class="img img1 fl"><a href="#"></a></li>
+					<li class="img img2 fl"><a href="#"></a></li>
+					<li class="img img3 fl"><a href="#"></a></li>
+					<li class="img img4 fl"><a href="#"></a></li>
+					<li class="img img5 fl"><a href="#"></a></li>
+					<li class="button_next fl"><a class="btn_wrap" href="#"></a></li>
+				</ul>
+				</div><!-- contents_channel end -->
+			</div>
+		</section>
+
+</body>
+</html>

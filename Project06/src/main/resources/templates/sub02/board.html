@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{commons/sub/layout}">
+<head>
+	<meta charset="UTF-8">
+	<title>board_page</title>
+	<link rel="stylesheet" href="css/board.css"/>
+	<link rel="stylesheet" href="../css/common.css"/>
+	<script src="../js/jquery-1.9.1.min.js"></script>
+	<script src="../js/jquery.easing.1.3.min.js"></script>
+	<script src="../js/tool_tip.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="../js/login_time.js"></script>
+	<script src="js/script.js"></script>
+</head>
+<body>
+
+<div id="wrap">
+	<section id="section" class="cf center" layout:fragment="content">
+		<h1>게시판입니다.</h1>
+		<div id="section_top_wrap">
+			<div id="section_top" class="center_board">
+				Home > 고객센터 > 공지사항
+			</div><!-- section_top end -->
+		</div><!-- section_top_wrap end -->
+		<div id="section_middle" class="fl cf">
+			<div id="aside" class="fl">
+				<div id="aside_title">
+					<h2>고객센터</h2>
+				</div>
+				<div id="aside_contents">
+					<h3>공지사항</h3>
+					<h3>이용안내</h3>
+					<ul>
+						<li><a href="#">정부24 이용방법</a></li>
+						<li><a href="#">회원가입·인증서 등록 방법</a></li>
+						<li><a href="#">전자결제안내</a></li>
+						<li><a href="#">무인민원발급안내</a></li>
+						<li><a href="#">어디서나 민원</a></li>
+						<li><a href="#">장애인 이용안내</a></li>
+					</ul>
+					<h3>자주묻는질문(FAQ)</h3>
+					<h3>자료실</h3>
+					<h3>상담예약</h3>
+					<h3>개선의견</h3>
+				</div>
+			</div><!-- aside end -->
+			<div id="board" class="fl">
+				<div id="board_title">
+					<h2 class="fl">공지사항</h2>
+					<div class="icon">
+						<a href="#" tabindex="41" class="fl"><div class="img1"></div></a>
+						<a href="#" tabindex="42" class="fl"><div class="img2"></div></a>
+						<a href="#" tabindex="43" class="fl"><div class="img3"></div></a>
+						<a href="#" tabindex="44" class="fl"><div class="img4"></div></a>
+					</div>
+				</div>
+				<div id="board_searchbar">
+					<ul class="cf fl">
+						<li>
+							<select name="Search_option" id="Search_option">
+								<option value=" 구분 전체">구분전체
+								<option value=" 새로운 기능">새로운 기능
+								<option value=" 작업안내">작업안내
+								<option value=" 장애안내">장애안내
+								<option value=" 기타">기타
+							</select>
+						</li>
+						<li><input type="text" name="Search_text" id="Search_text" placeholder=" 검색어를 입력해 주세요"/></li>
+						<li><input type="button" name="Searchbtn" id="Searchbtn" value="검색"/></li>
+					</ul>
+				</div>
+				<div id="board_contents" class="cf">
+					<div class="title cf">총 <span class="red">70</span>건의 공지사항이 있습니다.</div>
+					<div id="board_body" class="fl cl">
+	
+					</div>
+ 				</div><!-- board_contents end -->
+				<div id="board_num" class="cf">
+					<ul class="cf">
+						<li class="pageImg1"><a href="#" tabindex="45"><img src="images/ico_prev_doub.gif" alt="double left arrow"/></a></li>
+						<li class="pageImg2"><a href="#" tabindex="46"><img src="images/ico_prev.gif" alt="left arrow"/></a></li>
+						<li><a href="#">1</a><a href="#" class="active">1</a></li>
+						<li><a href="#">2</a><a href="#" class="active">2</a></li>
+						<li><a href="#">3</a><a href="#" class="active">3</a></li>
+						<li><a href="#">4</a><a href="#" class="active">4</a></li>
+						<li><a href="#">5</a><a href="#" class="active">5</a></li>
+						<li><a href="#" tabindex="51"><img src="images/ico_next.gif" alt="right arrow"/></a></li>
+						<li class="pageImg4"><a href="#" tabindex="52"><img src="images/ico_next_doub.gif" alt="double right arrow"/></a></li>
+					</ul>
+				</div>
+			</div><!-- board end -->
+		</div><!-- section_middle end -->
+	</section>
+</div><!-- wrap end -->
+</body>
+</html>
