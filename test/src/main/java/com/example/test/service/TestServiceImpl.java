@@ -12,6 +12,8 @@ import java.util.Optional;
 public class TestServiceImpl implements TestService{
     @Autowired
     TestRepository repository;
+    private int count = 0;
+    private int countR = 0;
 
     @Override
     public Iterable<Test> selectAll() {
@@ -23,14 +25,31 @@ public class TestServiceImpl implements TestService{
         return repository.findById(id);
     }
 
-    @Override
-    public Optional<Test> selectOneRandomTest() {
+    /*public Optional<Test> selectOneRandomTest() {
         Integer randId = repository.getRandomId();
         if(randId == null){
             return Optional.empty();
         }
         return repository.findById(randId);
+    }*/
+
+    public Optional<Test> selectOneRandomTest() {
+        long num = repository.count();
+        Integer id = count;
+        while(!repository.existsById(id)){
+            if(num == countR){
+                id = 0;
+                countR = 0;
+            }
+            id++;
+            System.out.println(num);
+        }
+        count = id;
+        countR++;
+        return repository.findById(count++);
     }
+
+
 
     @Override
     public Boolean checkTest(Integer id, Boolean myAnswer) {
