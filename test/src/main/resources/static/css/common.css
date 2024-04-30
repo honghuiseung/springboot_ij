@@ -1,0 +1,21 @@
+﻿@charset "utf-8";
+
+/*reset*/
+html{overflow-y: scroll;}
+*{margin: 0; padding: 0;}
+*:after, *:before{box-sizing: border-box;}
+body{font-family: "맑은 고딕", "돋움", sans-serif; color: #333333; line-height: 1;}
+h1 span{display: none;}
+ul, ol, li{list-style: none;}
+a, img{display: block;}
+a{text-decoration: none; color: #333333;}
+a:hover, a:link, a:visited, a:active{color:#333333;}
+img{border: 0;}
+input:focus, select:focus, input:active, select:active{outline: none; box-shadow: none;}
+form{overflow: hidden;}
+.cf:after{content: ''; display: block; clear: both;}
+.fl{float: left;}
+.fr{float: right;}
+.cl{clear: left;}
+.cb{clear: both;}
+.hidden{display: none;}

@@ -12,44 +12,49 @@ import java.util.Optional;
 public class TestServiceImpl implements TestService{
     @Autowired
     TestRepository repository;
-    private int count = 0;
-    private int countR = 0;
-
     @Override
     public Iterable<Test> selectAll() {
         return repository.findAll();
     }
 
-    @Override
+    Integer count = 0;
     public Optional<Test> selectOneById(Integer id) {
-        return repository.findById(id);
+        Integer startId;
+        Integer endId = repository.endId();
+        count++;
+        startId = count;
+        if(startId > endId){
+            count = 0;
+            startId = count;
+        }
+        Boolean findId = repository.existsById(startId);
+        while(findId == false){
+            startId++;
+            count = startId;
+            findId = repository.existsById(startId);
+        }
+
+        return repository.findById(startId);
+    }
+
+    @Override
+    public Optional<Test> selectOneRandomTest() {
+        return Optional.empty();
     }
 
     /*public Optional<Test> selectOneRandomTest() {
-        Integer randId = repository.getRandomId();
-        if(randId == null){
-            return Optional.empty();
-        }
-        return repository.findById(randId);
-    }*/
-
-    public Optional<Test> selectOneRandomTest() {
-        long num = repository.count();
         Integer id = count;
         while(!repository.existsById(id)){
-            if(num == countR){
+            if(isEnd()){
                 id = 0;
                 countR = 0;
             }
             id++;
-            System.out.println(num);
         }
         count = id;
         countR++;
         return repository.findById(count++);
-    }
-
-
+    }*/
 
     @Override
     public Boolean checkTest(Integer id, Boolean myAnswer) {

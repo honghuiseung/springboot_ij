@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-//@RequestMapping("aaa")
+@RequestMapping("/test")
 public class Pr6Controller {
 
-    @GetMapping("*")
+    @GetMapping
     public String showView(){
         return "index";
     }

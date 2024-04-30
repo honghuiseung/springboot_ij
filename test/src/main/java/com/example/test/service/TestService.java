@@ -19,4 +19,5 @@ public interface TestService {
     void updateTest(Test test);
     /*퀴즈를 삭제합니다.*/
     void deleteTestById(Integer id);
+    /*퀴즈가 종료했는지 확인합니다.*/
 }

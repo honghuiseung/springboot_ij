@@ -29,6 +29,18 @@ public class TestController {
 
     @GetMapping
     public String showList(TestForm testForm, Model model) {
+        //service.resetCount();
+        testForm.setNewTest(true);
+        Iterable<Test> list = service.selectAll();
+
+        model.addAttribute("list", list);
+        model.addAttribute("title", "등록 폼");
+
+        return "index";
+    }
+
+    @GetMapping("/crud")
+    public String showCrud(TestForm testForm, Model model) {
         testForm.setNewTest(true);
         Iterable<Test> list = service.selectAll();
 
@@ -49,8 +61,8 @@ public class TestController {
             service.insertTest(test);
             redirectAttributes.addFlashAttribute("complete", "등록이 완료되었습니다.");
             return "redirect:/test";
-        }else {
-            return showList(testForm, model);
+        } else {
+            return showCrud(testForm, model);
         }
 
     }
@@ -85,7 +97,6 @@ public class TestController {
         }else{
             makeUpdateModel(testForm, model);
             return "crud";
-
         }
     }
 
@@ -116,10 +127,11 @@ public class TestController {
         redirectAttributes.addFlashAttribute("delcomplete","삭제 완료했습니다.");
         return "redirect:/test";
     }
-
+    Integer nextId = 0;
     @GetMapping("/play")
     private String showTest(TestForm testForm,Model model){
-        Optional<Test> testOpt = service.selectOneRandomTest();
+        //Optional<Test> testOpt = service.selectOneRandomTest();
+        Optional<Test> testOpt = service.selectOneById(++nextId);
         if(testOpt.isPresent()){
             Optional<TestForm> testFormOpt = testOpt.map(t -> makeTestForm(t));
             testForm = testFormOpt.get();
@@ -140,4 +152,5 @@ public class TestController {
         }
         return "answer";
     }
+
 }

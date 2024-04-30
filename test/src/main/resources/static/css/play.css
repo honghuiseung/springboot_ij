@@ -1,0 +1,8 @@
+﻿#header{margin: 20px 0 0 20px;}
+#section{margin: 20px 0 0 10px; width:460px;}
+#section>*{margin: 10px 0 0 10px;}
+.bt_play{cursor:pointer;}
+
+#section button {padding:0 5px; margin-top:10px;}
+#section p {margin-top:10px;}
+#section .first {margin-left:10px;}

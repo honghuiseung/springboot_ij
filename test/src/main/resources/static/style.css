@@ -1,0 +1,5 @@
+﻿#header{margin: 20px 0 0 20px;}
+#section{margin: 20px 0 0 10px; width:460px;}
+#section>*{margin: 10px 0 0 10px;}
+#footer{margin: 20px;}
+.bt_play{cursor:pointer;}

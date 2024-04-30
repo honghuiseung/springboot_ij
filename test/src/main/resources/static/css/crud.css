@@ -1,0 +1,9 @@
+﻿#header{margin: 20px;}
+#section{margin: 20px 0 0 10px; width:455px;}
+#section>*{margin: 0 0 0 10px;}
+#section>*>*{margin: 10px 0 0 0;}
+#footer{margin: 20px;}
+
+#section .OX_v{margin-left:10px;}
+#section .author_v{margin-left:10px;}
+#section .back {margin-right:10px;}

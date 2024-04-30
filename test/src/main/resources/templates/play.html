@@ -3,21 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Play</title>
+	<link rel="stylesheet" href="../css/play.css"/>
+	<link rel="stylesheet" href="../common.css"/>
 </head>
 <body>
-<h1>OX 퀴즈 애플리케이션 : PLAY</h1>
-<th:block th:if="${msg}">
-  <p th:text="${msg}" style="color:red"></p>
-  <p th:text="@{/test}">CRUD 화면에 돌아가기</p>
-</th:block>
-<th:block th:unless="${msg}">
-  <p th:text="${testForm.question}">퀴즈내용</p>
-  <form th:action="@{/test/check}" th:object="${testForm}" method="POST">
-    <input type="hidden" th:field="*{id}">
-    <button name="answer" value="true">O</button>
-    <button name="answer" value="false">X</button>
-  </form>
-</th:block>
+<h1 id="header">OX 퀴즈 애플리케이션 : PLAY</h1>
+<section id="section" class="cf">
+	<th:block th:if="${msg}">
+	  <p th:text="${msg}" style="color:red"></p>
+	  <p th:text="@{/test}">CRUD 화면에 돌아가기</p>
+	</th:block>
+	<th:block th:unless="${msg}">
+	  <p th:text="${testForm.question}" class="fl">퀴즈내용</p>
+	  <form th:action="@{/test/check}" th:object="${testForm}" method="POST" class="fl cl">
+	    <input type="hidden" th:field="*{id}">
+	    <button name="answer" value="true">O</button>
+	    <button name="answer" value="false">X</button>
+	  </form>
+	</th:block>
+</section>
 
 </body>
 </html>
