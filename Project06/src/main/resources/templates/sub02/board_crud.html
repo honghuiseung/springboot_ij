@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{commons/sub/layout}">
+<head>
+	<meta charset="UTF-8">
+	<title>board_page</title>
+	<link rel="stylesheet" href="../sub02/css/board_crud.css"/>
+	<link rel="stylesheet" href="../css/common.css"/>
+	<script src="../js/jquery-1.9.1.min.js"></script>
+	<script src="../js/tool_tip.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="../js/login_time.js"></script>
+	<script src="../sub02/js/board_crud.js"></script>
+</head>
+<body>
+
+<div id="wrap">
+	<section id="section" class="cf center" layout:fragment="content">
+		<h1>게시판입니다.</h1>
+		<div id="section_top_wrap">
+			<div id="section_top" class="center_board">
+				Home > 고객센터 > 공지사항
+			</div><!-- section_top end -->
+		</div><!-- section_top_wrap end -->
+		<div id="section_middle" class="fl cf">
+			<div id="aside" class="fl">
+				<div id="aside_title">
+					<h2>고객센터</h2>
+				</div>
+				<div id="aside_contents">
+					<h3>공지사항</h3>
+					<h3>이용안내</h3>
+					<ul>
+						<li><a href="#">정부24 이용방법</a></li>
+						<li><a href="#">회원가입·인증서 등록 방법</a></li>
+						<li><a href="#">전자결제안내</a></li>
+						<li><a href="#">무인민원발급안내</a></li>
+						<li><a href="#">어디서나 민원</a></li>
+						<li><a href="#">장애인 이용안내</a></li>
+					</ul>
+					<h3>자주묻는질문(FAQ)</h3>
+					<h3>자료실</h3>
+					<h3>상담예약</h3>
+					<h3>개선의견</h3>
+				</div>
+			</div><!-- aside end -->
+			<div id="board" class="fl">
+				<div id="board_title">
+					<h2 class="fl">공지사항</h2>
+					<div class="icon">
+						<a href="#" tabindex="41" class="fl"><div class="img1"></div></a>
+						<a href="#" tabindex="42" class="fl"><div class="img2"></div></a>
+						<a href="#" tabindex="43" class="fl"><div class="img3"></div></a>
+						<a href="#" tabindex="44" class="fl"><div class="img4"></div></a>
+					</div>
+				</div>
+				<div id="board_tabmenu" class="cf">
+					<a href="#" class="menu menu1 active" >등록하기</a>
+					<a th:href="@{/board/board_list}" class="menu menu2">내역보기</a>
+				</div>
+				<div id="board_contents1" class="cf">
+					<form method="POST" th:action="${boardForm.newBoard}? @{/board/insert} : @{/board/update}" th:object="${boardForm}">
+						<div class="board_body fl cl">
+							<dl class="cf first">
+								<dt class="fl col1 brd_hd not_last">구분</dt>
+								<dd class="fl col1 brd_bd not_last">
+									<select th:field="*{separate}">
+										<option value="새로운 기능">새로운 기능</option>
+										<option value="작업안내">작업안내</option>
+										<option value="장애안내">장애안내</option>
+										<option value="기타">기타</option>
+									</select>
+								</dd>
+								<dt class="fl cl col2 brd_hd not_last">제목</dt>
+								<dd class="fl col2 brd_bd not_last">
+									<input type="text" placeholder="*제목을 입력해주세요.*" th:if="${#fields.hasErrors('title')}"/></input>
+									<input type="text" th:field="*{title}" th:unless="${#fields.hasErrors('title')}"/>
+								</dd>
+								<dt class="fl cl col3 brd_hd">내용</dt>
+								<dd class="fl col3 brd_bd">
+
+									<textarea name="content" id="content" cols="50" rows="10" maxlength="2000" th:field="*{content}"></textarea>
+								</dd>
+								<dd th:if="${#fields.hasErrors('content')}" th:errors="*{content}"
+									 style="color:red" class="alert fr"></dd>
+								<dd th:if="${complete}" th:text="${complete}" style="color:blue" class="complete fr"></dd>
+							</dl>
+						</div>
+						<input th:if="${id}" type="hidden" th:field="*{id}" >
+						<input type="hidden" th:field="*{regdate}" >
+						<input class="btn fr" type="submit" value="등록">
+					</form>
+ 				</div><!-- board_contents1 end -->
+
+			</div><!-- board end -->
+		</div><!-- section_middle end -->
+	</section>
+</div><!-- wrap end -->
+</body>
+</html>

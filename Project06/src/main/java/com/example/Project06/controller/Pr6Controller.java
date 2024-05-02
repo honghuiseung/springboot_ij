@@ -1,12 +1,21 @@
 package com.example.Project06.controller;
 
+import com.example.Project06.entity.Board;
+import com.example.Project06.form.BoardForm;
+import com.example.Project06.service.BoardService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @Controller
-@RequestMapping("/test")
+@RequestMapping
 public class Pr6Controller {
+
+    @Autowired
+    BoardService service;
 
     @GetMapping
     public String showView(){
@@ -16,10 +25,18 @@ public class Pr6Controller {
     public String showViewLogin(){
         return "sub01/login";
     }
+
     @GetMapping("sub02/board.html")
-    public String showViewBoard(){
+    public String showViewBoard(BoardForm boardForm, Model model){
+        boardForm.setNewBoard(true);
+        Iterable<Board> list = service.selectReverseAll();
+
+        model.addAttribute("list", list);
+        model.addAttribute("title", "등록 폼");
+
         return "sub02/board";
     }
+
     @GetMapping("sub03/info.html")
     public String showViewInfo(){
         return "sub03/info";
@@ -34,4 +51,6 @@ public class Pr6Controller {
     public String showViewPopup(){
         return "sub05/popup";
     }
+
+
 }

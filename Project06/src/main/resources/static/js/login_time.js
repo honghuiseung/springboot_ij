@@ -62,7 +62,6 @@ function logout_count(){
 	}
 	
 	time = new Result()
-	console.log(time);
 	
 	return time
 	

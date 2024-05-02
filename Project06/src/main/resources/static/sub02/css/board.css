@@ -121,8 +121,8 @@ h3, p{color:#333333; letter-spacing:-1.5px;}
 				#board_num ul li{float:left; width:34px; height: 34px; margin-left:3px; position:relative; overflow:hidden;}
 				#board_num ul li img{vertical-align: middle; width:34px;}
 				#board_num ul li a{display: block; width:34px; height: 34px; font-size: 0.9em; line-height: 13px; color: #333333; font-weight: bold; text-align:center; line-height:34px; text-decoration:none; position:absolute; top:0%;}
-				#board_num ul li a.active{color: #ffffff; background-color:red; top:100%;}
-				/* #board_num ul li a:hover{color: #ffffff; background-color:red;} */
+				#board_num ul li a.active{color: #ffffff; background-color:red;}
+				#board_num ul li a.num:hover{color: #ffffff; background-color:red;}
 
 /* footer 시작 */	
 	#footer_wrap{background-color:#f5f7fa;}

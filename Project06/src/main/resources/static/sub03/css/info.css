@@ -93,6 +93,7 @@ h3, p{color:#333333; letter-spacing:-2px;}
 			#info_contents{margin-bottom: 47px;height:1620px;}
 				#info_contents_title{position:relative;}
 				#info_contents_title .title{margin:0; width:252px; height:45px; border-left:1px solid #999999; border-top:1px solid #999999;  line-height:50px;}
+				#info_contents_title .title a{text-align:center;}
 				#info_contents_title .title5{border-right:1px solid #999999;}
 				#info_contents_title .title5.active{width: 247px; border-left:3px solid #1c5a94; border-right:3px solid #1c5a94; border-top:3px solid #1c5a94;}
 				#info_contents_title .active{width: 247px; border-left:3px solid #1c5a94; border-top:3px solid #1c5a94;}

@@ -29,7 +29,7 @@ public class TestController {
 
     @GetMapping
     public String showList(TestForm testForm, Model model) {
-        //service.resetCount();
+
         testForm.setNewTest(true);
         Iterable<Test> list = service.selectAll();
 
@@ -82,8 +82,8 @@ public class TestController {
         testForm.setNewTest(false);
         model.addAttribute("testForm", testForm);
         model.addAttribute("title", "변경 폼");
-
     }
+
     @PostMapping("/update")
     public String update(@Validated TestForm testForm,
                          BindingResult result,
@@ -127,11 +127,12 @@ public class TestController {
         redirectAttributes.addFlashAttribute("delcomplete","삭제 완료했습니다.");
         return "redirect:/test";
     }
+
     Integer nextId = 0;
     @GetMapping("/play")
     private String showTest(TestForm testForm,Model model){
         //Optional<Test> testOpt = service.selectOneRandomTest();
-        Optional<Test> testOpt = service.selectOneById(++nextId);
+        Optional<Test> testOpt = service.selectOneRandomTest();
         if(testOpt.isPresent()){
             Optional<TestForm> testFormOpt = testOpt.map(t -> makeTestForm(t));
             testForm = testFormOpt.get();

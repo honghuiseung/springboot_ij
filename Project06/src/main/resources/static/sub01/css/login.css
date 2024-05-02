@@ -20,6 +20,7 @@
 				#section_contents_title .title5.active{width: 247px; border-right:3px solid #1c5a94; border-right:3px solid #1c5a94; border-top:3px solid #1c5a94;}
 				#section_contents_title .active{width: 247px; border-left:3px solid #1c5a94; border-top:3px solid #1c5a94;}
 				#section_contents_title .title:not(.active){border-bottom:3px solid #1c5a94; background-color:#eeeeee;}
+				#section_contents_title .title a{text-align:center;}
 				#section_contents_title .active + .title{border-left:3px solid #1c5a94;}
 				
 /* 버튼 */

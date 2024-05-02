@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{commons/sub/layout}">
+<head>
+  <meta charset="UTF-8">
+  <title>board_page</title>
+  <link rel="stylesheet" href="../sub02/css/board_crud.css"/>
+  <link rel="stylesheet" href="../css/common.css"/>
+  <script src="../js/jquery-1.9.1.min.js"></script>
+  <script src="../js/tool_tip.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/login_time.js"></script>
+  <script src="../sub02/js/board_crud.js"></script>
+</head>
+<body>
+
+<div id="wrap">
+  <section id="section" class="cf center" layout:fragment="content">
+    <h1>게시판입니다.</h1>
+    <div id="section_top_wrap">
+      <div id="section_top" class="center_board">
+        Home > 고객센터 > 공지사항
+      </div><!-- section_top end -->
+    </div><!-- section_top_wrap end -->
+    <div id="section_middle" class="fl cf">
+      <div id="aside" class="fl">
+        <div id="aside_title">
+          <h2>고객센터</h2>
+        </div>
+        <div id="aside_contents">
+          <h3>공지사항</h3>
+          <h3>이용안내</h3>
+          <ul>
+            <li><a href="#">정부24 이용방법</a></li>
+            <li><a href="#">회원가입·인증서 등록 방법</a></li>
+            <li><a href="#">전자결제안내</a></li>
+            <li><a href="#">무인민원발급안내</a></li>
+            <li><a href="#">어디서나 민원</a></li>
+            <li><a href="#">장애인 이용안내</a></li>
+          </ul>
+          <h3>자주묻는질문(FAQ)</h3>
+          <h3>자료실</h3>
+          <h3>상담예약</h3>
+          <h3>개선의견</h3>
+        </div>
+      </div><!-- aside end -->
+      <div id="board" class="fl">
+        <div id="board_title">
+          <h2 class="fl">공지사항</h2>
+          <div class="icon">
+            <a href="#" tabindex="41" class="fl"><div class="img1"></div></a>
+            <a href="#" tabindex="42" class="fl"><div class="img2"></div></a>
+            <a href="#" tabindex="43" class="fl"><div class="img3"></div></a>
+            <a href="#" tabindex="44" class="fl"><div class="img4"></div></a>
+          </div>
+        </div>
+        <div id="board_tabmenu" class="cf">
+          <a class="menu menu1" th:href="@{/board/board_crud}">등록하기</a>
+          <a href="#" class="menu menu2 active">내역보기</a>
+        </div>
+        <div id="board_contents2" class="cf">
+          <div class="board_body fl cl">
+            <dl class="cf first">
+              <dt class="fl id">번호</dt>
+              <dt class="fl subject">제목</dt>
+              <dt class="fl date">등록일</dt>
+              <dt class="fl update">수정</dt>
+              <dt class="fl delete">삭제</dt>
+            </dl>
+            <dl class="cf" th:each="obj : ${list}">
+              <dd class="fl id" th:text="${obj.id}"></dd>
+              <dd class="fl subject" th:text="${obj.title}"></dd>
+              <dd class="fl date" th:text="${obj.regdate}"></dd>
+              <dd class="fl update">
+                <form method="GET" th:action="@{/board/{id}(id=${obj.id})}">
+                  <input type="submit" value="수정">
+                </form>
+              </dd>
+              <dd class="fl delete">
+                <form method="POST" th:action="@{/board/delete}">
+                  <input type="hidden" name="id" th:value="${obj.id}">
+                  <input type="submit" value="삭제">
+                </form>
+              </dd>
+            </dl>
+            <p th:if="${#lists.isEmpty(list)}">등록 내역이 없습니다.</p>
+          </div>
+        </div><!-- board_contents2 end -->
+      </div><!-- board end -->
+    </div><!-- section_middle end -->
+  </section>
+</div><!-- wrap end -->
+</body>
+</html>
