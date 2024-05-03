@@ -19,4 +19,15 @@
         	    $('#board_contents2 dl dd.update form input').eq(i).trigger('click');
         });
 	});
+	var $modal = $('.modal_wrap')
+	
+	$('#board_contents2 .delete #delete').click(function(){
+		$modal.show();
+	});
+	$modal.find('ul li.no input').each(function(){
+		$(this).click(function(){
+			$modal.hide();
+		});
+	});
+	
 });

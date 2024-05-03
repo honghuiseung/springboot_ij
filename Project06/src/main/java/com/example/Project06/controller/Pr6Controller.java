@@ -16,6 +16,7 @@ public class Pr6Controller {
 
     @Autowired
     BoardService service;
+    private String boardSize;
 
     @GetMapping
     public String showView(){
@@ -29,8 +30,10 @@ public class Pr6Controller {
     @GetMapping("sub02/board.html")
     public String showViewBoard(BoardForm boardForm, Model model){
         boardForm.setNewBoard(true);
+        boardSize = service.getSizeOfBoard().toString();
         Iterable<Board> list = service.selectReverseAll();
 
+        model.addAttribute("boardSize", boardSize);
         model.addAttribute("list", list);
         model.addAttribute("title", "등록 폼");
 

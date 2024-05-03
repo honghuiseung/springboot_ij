@@ -37,6 +37,9 @@ public class BoardServiceImp implements BoardService{
     public Optional<Board> selectOneById(Integer id) {
         return repository.findById(id);
     }
+    public Integer selectLastBn() {
+        return repository.endBn();
+    }
 
     @Override
     public void insertBoard(Board board) {
@@ -50,6 +53,15 @@ public class BoardServiceImp implements BoardService{
 
     @Override
     public void deleteBoardById(Integer id) {
+        Integer bn = repository.getBoardNumById(id);
+        repository.updateBn(bn);
         repository.deleteById(id);
     }
+
+    public Integer getSizeOfBoard(){
+        long count = repository.count();
+        int result = Long.valueOf(count).intValue();
+        return result;
+    }
+
 }

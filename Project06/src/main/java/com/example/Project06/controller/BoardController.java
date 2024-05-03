@@ -21,7 +21,7 @@ import java.util.Optional;
 public class BoardController {
     @Autowired
     BoardService service;
-
+    private Integer deleteId;
 
     @ModelAttribute
     public BoardForm setUpForm() {
@@ -58,6 +58,7 @@ public class BoardController {
         board.setSeparate(boardForm.getSeparate());
         board.setTitle(boardForm.getTitle());
         board.setContent(boardForm.getContent());
+        board.setBoardnum(service.selectLastBn()+1);
 
         LocalDate localDate = LocalDate.now();
         board.setRegdate(localDate);
@@ -86,9 +87,15 @@ public class BoardController {
     private String delete(@RequestParam("id") String id,
                           Model model,
                           RedirectAttributes redirectAttributes){
-        service.deleteBoardById(Integer.parseInt(id));
+        service.deleteBoardById(deleteId);
         redirectAttributes.addFlashAttribute("delcomplete","삭제 완료했습니다.");
         return "redirect:/board/board_list";
+    }
+
+    @PostMapping("/modal")
+    private String showModal(@RequestParam("id") String id,BoardForm boardForm, Model model){
+        deleteId = Integer.parseInt(id);
+        return showList(boardForm, model);
     }
 
     private void makeUpdateModel(BoardForm boardForm, Model model){
@@ -120,6 +127,7 @@ public class BoardController {
         board.setTitle(boardForm.getTitle());
         board.setContent(boardForm.getContent());
         board.setRegdate(boardForm.getRegdate());
+        board.setBoardnum(boardForm.getBoardnum());
         return board;
     }
 
@@ -130,6 +138,7 @@ public class BoardController {
         form.setTitle(board.getTitle());
         form.setContent(board.getContent());
         form.setRegdate(board.getRegdate());
+        form.setBoardnum(board.getBoardnum());
         form.setNewBoard(false);
         return form;
     }

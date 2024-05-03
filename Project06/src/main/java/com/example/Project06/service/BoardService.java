@@ -17,4 +17,8 @@ public interface BoardService {
     void updateBoard(Board board);
     /*게시판에 글을 삭제합니다.*/
     void deleteBoardById(Integer id);
+    /*마지막 게시판 넘버를 리턴합니다.*/
+    Integer selectLastBn();
+    /*게시판의 총 게시물 수를 리턴합니다.*/
+    Integer getSizeOfBoard();
 }

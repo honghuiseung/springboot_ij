@@ -6,15 +6,18 @@
   <meta charset="UTF-8">
   <title>board_page</title>
   <link rel="stylesheet" href="../sub02/css/board_crud.css"/>
+  <link rel="stylesheet" href="../../static/sub02/css/board_crud.css"/>
   <link rel="stylesheet" href="../css/common.css"/>
+  <link rel="stylesheet" href="../../static/css/common.css"/>
   <script src="../js/jquery-1.9.1.min.js"></script>
+  <script src="../../static/js/jquery-1.9.1.min.js"></script>
   <script src="../js/tool_tip.js"></script>
   <script src="../js/common.js"></script>
   <script src="../js/login_time.js"></script>
   <script src="../sub02/js/board_crud.js"></script>
+  <script src="../../static/sub02/js/board_crud.js"></script>
 </head>
 <body>
-
 <div id="wrap">
   <section id="section" class="cf center" layout:fragment="content">
     <h1>게시판입니다.</h1>
@@ -69,7 +72,7 @@
               <dt class="fl delete">삭제</dt>
             </dl>
             <dl class="cf" th:each="obj : ${list}">
-              <dd class="fl id" th:text="${obj.id}"></dd>
+              <dd class="fl id" th:text="${obj.boardnum}"></dd>
               <dd class="fl subject" th:text="${obj.title}"></dd>
               <dd class="fl date" th:text="${obj.regdate}"></dd>
               <dd class="fl update">
@@ -80,7 +83,7 @@
               <dd class="fl delete">
                 <form method="POST" th:action="@{/board/delete}">
                   <input type="hidden" name="id" th:value="${obj.id}">
-                  <input type="submit" value="삭제">
+                  <input type="button" id="delete" value="삭제">
                 </form>
               </dd>
             </dl>
@@ -91,5 +94,14 @@
     </div><!-- section_middle end -->
   </section>
 </div><!-- wrap end -->
+<div class="modal_wrap">
+	<form method="POST" th:action="@{/board/delete}">
+		<ul id="modal">
+			<li class="ques fl">정말로 삭제하시겠습니까?</li>
+			<li class="fl select cl"><input type="submit" value="예"/></li>
+			<li class="fl select no"><input type="button" value="아니오"/></li>
+		</ul>
+	</form>
+</div>
 </body>
 </html>

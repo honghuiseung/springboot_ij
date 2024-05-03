@@ -14,6 +14,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class BoardForm {
     private Integer id;
+    private Integer boardnum;
     @NotBlank
     private String separate;
     @NotBlank

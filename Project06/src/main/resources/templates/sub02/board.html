@@ -72,8 +72,8 @@
 					</ul>
 				</div>
 				<div id="board_contents" class="cf">
-					<div class="title cf">총 <span class="red">70</span>건의 공지사항이 있습니다.</div>
-					<a class="fr" th:href="@{/board/board_crud}">글쓰기</a>
+					<div class="title cf">총 <span class="red" th:text="${boardSize}">70</span>건의 공지사항이 있습니다.</div>
+					<a class="write fr" th:href="@{/board/board_crud}">글쓰기</a>
 					<div id="board_body" class="fl cl">
 						<dl class="cf first">
 							<dt class="fl row1">번호</dt>
@@ -82,7 +82,7 @@
 							<dt class="fl row4">게시일</dt>
 						</dl>
 						<dl class="cf" th:each="obj : ${list}">
-							<dd class="fl row1" th:text="${obj.id}"></dd>
+							<dd class="fl row1" th:text="${obj.boardnum}"></dd>
 							<dd class="fl row2" th:text="${obj.separate}"></dd>
 							<dd class="fl row3" th:text="${obj.title}"></dd>
 							<dd class="fl row4" th:text="${obj.regdate}"></dd>

@@ -15,6 +15,7 @@ import java.util.Date;
 public class Board {
     @Id
     private Integer id;
+    private Integer boardnum;
     private String separate;
     private String title;
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)

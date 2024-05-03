@@ -94,12 +94,12 @@ h3, p{color:#333333; letter-spacing:-1.5px;}
 				#board_searchbar input[type="button"]{height: 32px;margin-left: 15px; margin-top: 0px; padding: 3px 8px 4px 8px; width: 80px; font-size: 1em; background-color:#504e4b; color: #ffffff; border: 1px solid #3e3b38; cursor: pointer;}
 				
 				/* 버튼동작 */
-				#board_contents dl.on{cursor:default;}
 				#board_contents dl{cursor:pointer;}
 				
 /* 게시판 */
 				#board_contents{margin-top: 25px;}
 				#board_contents #board_body{margin-top:6px; border-top:2px solid #333333; border-bottom:2px solid #333333;}
+				#board_contents a.write{margin-top:25px;}
 				#board_contents dl:nth-child(even)>dd{background-color:#94feff;}
 				#board_contents dl>dt{height:41px; line-height:41px; border-bottom:1px solid #333333;}
 				#board_contents dl>dd{line-height:38px; border-bottom:1px solid #666666;}
@@ -114,7 +114,7 @@ h3, p{color:#333333; letter-spacing:-1.5px;}
 				#board_contents dl .row4{width:205px; border-right:0; height:38px;}
 				#board_contents dl dd.board_cont{background-color:#ffffff; border:0; width:975px; padding:10px 0px;}
 				#board_contents dl .inner_text{background-color:#efefef; border-radius:5px; border: 1px solid #999999; width: 913px; text-align:left; padding:0 10px; margin-left:20px;}								
-				
+
 				
 /* 페이지 */
 				#board_num{margin: 22px auto 0px auto; width: 347px;height:36px;}
@@ -169,7 +169,7 @@ h3, p{color:#333333; letter-spacing:-1.5px;}
 a.blue, a.blue:visited, a.blue:active{color:#3382ec;}
 .underline, .underline:visited, .underline:active{text-decoration:underline;}		
 .red{color:#dd0000;}
-.title{float:left; margin:0; text-align:center; font-size:1.05em; font-weight:bold; letter-spacing:-2px;}			
+.title{height: 30px; float:left; margin:0; text-align:center; font-size:1.05em; font-weight:bold; letter-spacing:-2px;}
 .fl{float:left;}
 .cl{clear:left;}
 .cb{clear:both;}
