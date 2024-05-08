@@ -87,15 +87,9 @@ public class BoardController {
     private String delete(@RequestParam("id") String id,
                           Model model,
                           RedirectAttributes redirectAttributes){
-        service.deleteBoardById(deleteId);
+        service.deleteBoardById(Integer.parseInt(id));
         redirectAttributes.addFlashAttribute("delcomplete","삭제 완료했습니다.");
         return "redirect:/board/board_list";
-    }
-
-    @PostMapping("/modal")
-    private String showModal(@RequestParam("id") String id,BoardForm boardForm, Model model){
-        deleteId = Integer.parseInt(id);
-        return showList(boardForm, model);
     }
 
     private void makeUpdateModel(BoardForm boardForm, Model model){

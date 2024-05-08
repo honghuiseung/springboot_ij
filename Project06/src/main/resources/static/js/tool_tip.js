@@ -8,7 +8,7 @@
 	
 	function set_balloon(){
 		balloon.text(ddaycount())
-		balloon.append($('<img src="images/main_icon.png" class="fl" width="20"/>'));
+		balloon.append($('<img src="../images/main_icon.png" class="fl" width="20"/>'));
 	}
 	function updateBalloonPosition(x, y){
 		balloon.css({ left: x + 10, top: y });
@@ -29,7 +29,7 @@
 			element.hover(
 				function(event){
 					balloon.text(text);
-					balloon.append($('<img src="images/main_icon.png" class="fl" width="20"/>'));
+					balloon.append($('<img src="../images/main_icon.png" class="fl" width="20"/>'));
 					updateBalloonPosition(event.pageX, event.pageY);
 					showBalloon();
 					

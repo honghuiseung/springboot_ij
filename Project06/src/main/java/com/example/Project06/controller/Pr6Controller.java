@@ -30,7 +30,12 @@ public class Pr6Controller {
     @GetMapping("sub02/board.html")
     public String showViewBoard(BoardForm boardForm, Model model){
         boardForm.setNewBoard(true);
+        if(service.getSizeOfBoard() == 0){
+            return "sub02/board";
+        }
         boardSize = service.getSizeOfBoard().toString();
+
+
         Iterable<Board> list = service.selectReverseAll();
 
         model.addAttribute("boardSize", boardSize);

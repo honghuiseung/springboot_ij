@@ -38,6 +38,9 @@ public class BoardServiceImp implements BoardService{
         return repository.findById(id);
     }
     public Integer selectLastBn() {
+        if(repository.count()==0){
+            return 0;
+        }
         return repository.endBn();
     }
 

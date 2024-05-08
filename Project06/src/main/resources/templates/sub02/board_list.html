@@ -6,16 +6,12 @@
   <meta charset="UTF-8">
   <title>board_page</title>
   <link rel="stylesheet" href="../sub02/css/board_crud.css"/>
-  <link rel="stylesheet" href="../../static/sub02/css/board_crud.css"/>
   <link rel="stylesheet" href="../css/common.css"/>
-  <link rel="stylesheet" href="../../static/css/common.css"/>
   <script src="../js/jquery-1.9.1.min.js"></script>
-  <script src="../../static/js/jquery-1.9.1.min.js"></script>
   <script src="../js/tool_tip.js"></script>
   <script src="../js/common.js"></script>
   <script src="../js/login_time.js"></script>
   <script src="../sub02/js/board_crud.js"></script>
-  <script src="../../static/sub02/js/board_crud.js"></script>
 </head>
 <body>
 <div id="wrap">
@@ -77,12 +73,14 @@
               <dd class="fl date" th:text="${obj.regdate}"></dd>
               <dd class="fl update">
                 <form method="GET" th:action="@{/board/{id}(id=${obj.id})}">
+                  <input type="hidden" name="id" th:value="${obj.id}">
                   <input type="submit" value="수정">
                 </form>
               </dd>
               <dd class="fl delete">
                 <form method="POST" th:action="@{/board/delete}">
-                  <input type="hidden" name="id" th:value="${obj.id}">
+                  <input type="hidden" name="id" class="board_id" th:value="${obj.id}">
+                  <input type="submit" th:id="'id'+${obj.id}" th:value="${obj.id}">
                   <input type="button" id="delete" value="삭제">
                 </form>
               </dd>
@@ -92,16 +90,18 @@
         </div><!-- board_contents2 end -->
       </div><!-- board end -->
     </div><!-- section_middle end -->
+    <div class="modal_wrap">
+      <form method="POST" th:action="@{/board/delete}">
+        <ul id="modal">
+          <li class="ques fl">정말로 삭제하시겠습니까?</li>
+          <li class="fl select cl"><label><div class="input">예</div></label></li>
+          <li class="fl select no"><div class="input">아니오</div></li>
+        </ul>
+      </form>
+    </div>
   </section>
+
 </div><!-- wrap end -->
-<div class="modal_wrap">
-	<form method="POST" th:action="@{/board/delete}">
-		<ul id="modal">
-			<li class="ques fl">정말로 삭제하시겠습니까?</li>
-			<li class="fl select cl"><input type="submit" value="예"/></li>
-			<li class="fl select no"><input type="button" value="아니오"/></li>
-		</ul>
-	</form>
-</div>
+
 </body>
 </html>

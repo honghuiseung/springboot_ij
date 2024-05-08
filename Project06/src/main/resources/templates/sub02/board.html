@@ -90,6 +90,7 @@
 								<div class="inner_text fl cf" th:text="${obj.content}"></div>
 							</dd>
 						</dl>
+						<dl th:if="${#lists.isEmpty(list)}">등록 내역이 없습니다.</dl>
 					</div>
  				</div><!-- board_contents end -->
 				<div id="board_num" class="cf">

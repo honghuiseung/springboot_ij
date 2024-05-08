@@ -1,7 +1,6 @@
 ﻿$(function(){
 	/*var menu = $('#board_tabmenu .menu');
 	var board_cont = [$('#board_contents1'),$('#board_contents2')];
-	console.log(board_cont);
 	menu.each(function(i){
 		$(this).click(function(){
 			for(var j in board_cont){
@@ -20,11 +19,16 @@
         });
 	});
 	var $modal = $('.modal_wrap')
-	
-	$('#board_contents2 .delete #delete').click(function(){
-		$modal.show();
-	});
-	$modal.find('ul li.no input').each(function(){
+
+    $('#board_contents2 .delete #delete').each(function(){
+        	    var board_id = "id"+$(this).parent('form').find('.board_id').attr('value');
+                $(this).click(function(){
+                        $modal.show();
+                        $('#modal label').attr('for',board_id);
+                    });
+        	});
+
+	$modal.find('ul li.no .input').each(function(){
 		$(this).click(function(){
 			$modal.hide();
 		});

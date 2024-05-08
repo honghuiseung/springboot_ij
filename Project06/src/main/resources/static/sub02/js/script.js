@@ -6,7 +6,6 @@
     board_content.hide();
 
     board.each(function(){
-        console.log('a');
         $(this).click(function(){
             board_content.hide();
             board.removeClass('on');
