@@ -1,6 +1,6 @@
 package com.shop.dto;
 
-import com.shop.constraint.ItemSellStatus;
+import com.shop.constant.ItemSellStatus;
 import jakarta.persistence.Column;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

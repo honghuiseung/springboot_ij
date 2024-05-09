@@ -2,7 +2,7 @@ package com.shop.repository;
 
 import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import com.shop.constraint.ItemSellStatus;
+import com.shop.constant.ItemSellStatus;
 import com.shop.entity.Item;
 import com.shop.entity.QItem;
 import jakarta.persistence.EntityManager;

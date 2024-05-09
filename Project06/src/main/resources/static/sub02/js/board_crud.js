@@ -15,7 +15,7 @@
 	menu.eq(0).trigger('click');*/
 	$('#board_contents2 dl dd.subject').each(function(i){
 	    $(this).click(function(){
-        	    $('#board_contents2 dl dd.update form input').eq(i).trigger('click');
+        	    $('#board_contents2 dl').eq(i+1).find('dd.update form input').eq(1).trigger('click');
         });
 	});
 	var $modal = $('.modal_wrap')
