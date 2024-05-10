@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<div th:fragment="footer" class="ui_fixed" data-role="footer" data-position="fixed" data-tap-toggle="false">
+  <ul>
+    <li class="home on">
+      <a href="#main_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon home"></p>홈</a>
+    </li>
+    <li class="search">
+      <a href="#search_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon search"></p>검색</a>
+    </li>
+    <li class="recipe">
+      <a href="#recipe_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon recipe"></p>레시피</a>
+    </li>
+    <li class="user">
+      <a href="#" class="ui-btn ui-corner-all" data-role="button"><p class="icon user"></p>MY</a>
+    </li>
+  </ul>
+</div><!--ui_fixed-->
+
+</html>
