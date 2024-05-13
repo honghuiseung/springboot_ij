@@ -1,6 +1,6 @@
-package com.shop.repository;
+package com.example.mobile_project.repository;
 
-import com.shop.entity.Item;
+import com.example.mobile_project.entity.Item;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

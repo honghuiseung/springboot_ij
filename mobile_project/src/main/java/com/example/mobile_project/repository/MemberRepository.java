@@ -1,6 +1,6 @@
-package com.shop.repository;
+package com.example.mobile_project.repository;
 
-import com.shop.entity.Member;
+import com.example.mobile_project.entity.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MemberRepository extends JpaRepository<Member, Long> {

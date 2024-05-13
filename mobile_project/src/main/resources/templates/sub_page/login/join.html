@@ -1,27 +1,60 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layouts/layout_main}">
+      layout:decorate="~{layouts/sub/layout_sub}">
+
+<!-- 사용자 CSS 추가 -->
+<!--<th:block layout:fragment="css">
+  <style>
+        .fieldError {
+            color: #bd2130;
+        }
+    </style>
+</th:block>
+
+&lt;!&ndash; 사용자 스크립트 추가 &ndash;&gt;
+<th:block layout:fragment="script">
+  <script th:inline="javascript">
+    $(document).ready(function(){ //1) 설명
+        var errorMessage = [[${errorMessage}]];
+        if(errorMessage != null){
+            alert(errorMessage);
+        }
+    });
+</script>-->
+
 <div id="join_page" class="conts_wrap join" data-role="content" layout:fragment="content">
-  <form action="#" class="sec sec_width">
+  <form action="/sub/new" class="sec sec_width" role="form" method="post" th:object="${memberFormDto}">
     <fieldset class="user_input_wrap">
-      <label for="join_user_name">이름</label>
-      <input type="text" name="join_user_name" id="join_user_name" class="user_input" placeholder="이름을 입력해 주세요."/>
+      <label th:for="name">이름</label>
+      <input type="text" th:field="*{name}" name="join_user_name" id="join_user_name" class="user_input" placeholder="이름을 입력해 주세요."/>
     </fieldset>
+    <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="fieldError">
+      Incorrect data
+    </p>
     <fieldset class="user_input_wrap">
-      <label for="join_user_id">아이디</label>
-      <input type="text" name="join_user_id" id="join_user_id" class="user_input" placeholder="이메일을 입력해 주세요."/>
+      <label th:for="join_user_id">아이디</label>
+      <input type="text" th:field="*{email}" name="join_user_id" id="join_user_id" class="user_input" placeholder="이메일을 입력해 주세요."/>
     </fieldset>
+    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="fieldError">
+      Incorrect data
+    </p>
     <fieldset class="user_input_wrap">
-      <label for="join_user_pw">비밀번호</label>
-      <input type="password" name="join_user_pw" id="join_user_pw" class="user_input" placeholder="비밀번호를 입력해 주세요."/>
+      <label th:for="join_user_pw">비밀번호</label>
+      <input type="password" th:field="*{password}" name="join_user_pw" id="join_user_pw" class="user_input" placeholder="비밀번호를 입력해 주세요."/>
       <span class="user_icon pw_eye off"></span>
     </fieldset>
+    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="fieldError">
+      Incorrect data
+    </p>
     <fieldset class="user_input_wrap">
-      <label for="join_user_ad">주소</label>
-      <input type="text" name="join_user_ad" id="join_user_ad" class="user_input" placeholder="주소를 입력해 주세요."/>
+      <label th:for="join_user_ad">주소</label>
+      <input type="text" th:field="*{address}" name="join_user_ad" id="join_user_ad" class="user_input" placeholder="주소를 입력해 주세요."/>
     </fieldset>
-    <button type="submit" class="join_btn">회원가입</button>
+    <p th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="fieldError">
+      Incorrect data
+    </p>
+    <button type="submit" th:field="*{name}" class="join_btn">회원가입</button>
   </form>
 </div><!--content-->
 </html>

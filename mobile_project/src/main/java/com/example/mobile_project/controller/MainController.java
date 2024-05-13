@@ -10,13 +10,5 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping(value = "/login")
-    public String login(){
-        return "sub_page/login/login";
-    }
 
-    @GetMapping(value = "/join")
-    public String join(){
-        return "sub_page/login/join";
-    }
 }

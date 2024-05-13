@@ -34,7 +34,7 @@ public class Member {
         member.setEmail(memberFormDto.getEmail());
         member.setAddress(memberFormDto.getAddress());
         //String password = passwordEncoder.encode(memberFormDto.getPassword());
-        //member.setPassword(password);
+        member.setPassword(memberFormDto.getPassword());
         //member.setRole(Role.ADMIN);
         member.setRole(Role.USER);
 

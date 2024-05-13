@@ -1,7 +1,7 @@
 package com.example.mobile_project.service;
 
 import com.example.mobile_project.entity.Member;
-import com.shop.repository.MemberRepository;
+import com.example.mobile_project.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 //import org.springframework.security.core.userdetails.User;
 //import org.springframework.security.core.userdetails.UserDetails;
@@ -9,11 +9,11 @@ import lombok.RequiredArgsConstructor;
 //import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-/*
+
 @Service
 @Transactional //에러 발생시 롤백
 @RequiredArgsConstructor //빈 객체의 생성자
-public class MemberService implements UserDetailsService {
+public class MemberService {
     private final MemberRepository memberRepository;
     public Member saveMember(Member member){
         validatDuplicateMember(member);
@@ -27,7 +27,7 @@ public class MemberService implements UserDetailsService {
         }
     }
 
-    @Override
+    /*@Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Member member = memberRepository.findByEmail(email);
         if(member == null){
@@ -39,5 +39,5 @@ public class MemberService implements UserDetailsService {
                 .password(member.getPassword())
                 .roles(member.getRole().toString())
                 .build();
-    }
-}*/
+    }*/
+}
