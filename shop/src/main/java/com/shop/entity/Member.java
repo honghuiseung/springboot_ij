@@ -1,6 +1,5 @@
 package com.shop.entity;
 
-import com.shop.constant.ItemSellStatus;
 import com.shop.constant.Role;
 import com.shop.dto.MemberFormDto;
 import jakarta.persistence.*;
@@ -15,7 +14,7 @@ import java.time.LocalDateTime;
 @Table(name = "member")
 @Getter @Setter
 @ToString
-public class Member {
+public class Member extends BaseEntity {
     @Id
     @Column(name = "member_id")
     @GeneratedValue(strategy = GenerationType.AUTO)

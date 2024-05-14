@@ -6,6 +6,7 @@ import com.example.mobile_project.service.MemberService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 //import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,12 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor
 public class MemberController {
     private final MemberService memberService;
-    //private final PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
-    /*@GetMapping(value = "/login")
-    public String login(){
-        return "sub_page/login/login";
-    }*/
 
     @GetMapping(value = "/new")
     public String memberForm(Model model){
@@ -31,28 +28,27 @@ public class MemberController {
         return "sub_page/login/join";
     }
 
+    @GetMapping(value = "/login")
+    public String login(){
+        return "sub_page/login/login";
+    }
+
     @PostMapping(value="/new")
-    public String newMember(@Valid MemberFormDto memberFormDto, BindingResult bindingResult,Model model){//제약사항을 받아오는 어노테이션
+    public String newMember(@Valid MemberFormDto memberFormDto, BindingResult bindingResult, Model model){//제약사항을 받아오는 어노테이션
 
         if(bindingResult.hasErrors()){
             return "sub_page/login/join";
         }
 
         try{
-            Member member = Member.createMember(memberFormDto);
-            //Member member = Member.createMember(memberFormDto, passwordEncoder);
+            Member member = Member.createMember(memberFormDto, passwordEncoder);
             memberService.saveMember(member);
         } catch (IllegalStateException e){
             model.addAttribute("errorMessage", e.getMessage());
             return "sub_page/login/join";
         }
 
-        return "redirect:/";
-    }
-
-    @GetMapping(value = "/login")
-    public String loginMember(){
-        return "sub_page/login/login";
+        return "redirect:/sub/login";
     }
 
     @GetMapping(value = "/login/error")

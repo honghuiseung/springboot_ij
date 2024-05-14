@@ -2,7 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/layout_main}">
-<div id="main_page" class="conts_wrap" data-role="content" layout:fragment="content">
+<div id="main_page" class="conts_wrap .home" data-role="content" layout:fragment="content">
+    <script>
+        $(function(){
+            var $footer = $('.ui_fixed ul li');
+            $footer.each(function(){
+                $(this).removeClass(on);
+                $footer.eq(0).addClass(on);
+            });
+        })
+    </script>
     <div class="sec search_pickup sec_width">
         <div class="cont_box_wrap cont_box01">
             <a href="#" class="cont_box find_stock">

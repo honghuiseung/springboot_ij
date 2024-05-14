@@ -1,27 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layouts/sub/layout_sub}">
+      layout:decorate="~{layouts/sub/layout_login}">
 
-<!-- 사용자 CSS 추가 -->
-<!--<th:block layout:fragment="css">
-  <style>
-        .fieldError {
-            color: #bd2130;
-        }
-    </style>
-</th:block>
-
-&lt;!&ndash; 사용자 스크립트 추가 &ndash;&gt;
 <th:block layout:fragment="script">
-  <script th:inline="javascript">
-    $(document).ready(function(){ //1) 설명
-        var errorMessage = [[${errorMessage}]];
-        if(errorMessage != null){
-            alert(errorMessage);
-        }
-    });
-</script>-->
+  <script>
+        $(function(){
+            //푸터 변경
+            var $footer = $('.ui_fixed ul li');
+            $footer.removeClass('on');
+            $footer.each(function(){
+                $footer.eq(3).addClass('on');
+                          //eq(바꿀 부분)
+            });
+            //헤더 변경
+            $('.header .header_wrap .page_tit').text('회원가입');
+        })
+    </script>
+</th:block>
 
 <div id="join_page" class="conts_wrap join" data-role="content" layout:fragment="content">
   <form action="/sub/new" class="sec sec_width" role="form" method="post" th:object="${memberFormDto}">
@@ -55,6 +51,7 @@
       Incorrect data
     </p>
     <button type="submit" th:field="*{name}" class="join_btn">회원가입</button>
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
   </form>
 </div><!--content-->
 </html>

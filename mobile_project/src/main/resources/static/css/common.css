@@ -2,7 +2,7 @@
 
 /*reset*/
 html{overflow-y: scroll;}
-*{margin: 0; padding: 0; outline: 0;}
+*{margin: 0; padding: 0; outline: 0; box-sizing: border-box;}
 *:after, *:before{box-sizing: border-box;}
 body{font-family: "맑은 고딕", "돋움", sans-serif; color: #333333; line-height: 1;}
 h1, h2, h3, h4, h5, h6{font-size: 16px; font-weight: normal;}
@@ -20,14 +20,14 @@ form{overflow: hidden;}
 .cf:after{content: ''; display: block; clear: both;}
 .fl{float: left;}
 .fr{float: right;}
-.fieldError{ color: #bd2130; margin-bottom:20px;}
+.fieldError{color: #bd2130; line-height:30px; margin-bottom:20px;}
 
 /*layout*/
-.header_wrap, .ui_fixed ul{display: flex; justify-content: space-between; align-items: center; width: 90vw; margin: 0 auto; box-sizing: content-box;}
+.header_wrap, .ui_fixed ul{display: flex; justify-content: space-between; align-items: center; width: 90vw; margin: 0 auto;}
 .header_wrap{position: relative;}
 .header_wrap .page_tit{position: absolute; left: 50%; transform: translateX(-50%); font-size: 20px; font-weight: bold;}
 /*header*/
-.header{width: 100%; height: 64px; background: #f6f6f6;}
+.header{width: 100%; height: 64px; background: #f6f6f6!important;}
 .header_wrap{height: 100%; line-height: 64px;}
 .head_icon{display: flex;}
 .head_icon>div{width: 20px; height: 22px; background: url(../images/head_icons.svg) no-repeat;}
@@ -40,13 +40,13 @@ form{overflow: hidden;}
 .header_wrap a.back_btn{width: 23px; height: 22px; background: url(../images/head_icons.svg) no-repeat -70px 0;}
 
 /*ui fixed*/
-.ui_fixed{background: #f6f6f6;}
-.ui_fixed ul li a{display: flex; flex-direction: column; align-items: center; color: #929292; background-color: none; border: none;}
+.ui_fixed{background: #f6f6f6!important;}
+.ui_fixed ul li a.ui-corner-all {display: flex; flex-direction: column; align-items: center; color: #929292; background-color: none; border: none;}
 .ui_fixed ul li a:active, .ui_fixed ul li a:focus, .ui_fixed ul li a:hover{background-color: none; box-shadow: none;}
 .ui_fixed ul li a .icon{width: 24px; height: 24px; margin-bottom: 5px; background: url(../images/ui_fixed_icons.svg) no-repeat 0 0; background-size: 102px;}
 .ui_fixed ul li a .icon.home{background-position: 0 -1px;}
 .ui_fixed ul li a .icon.search{background-position: -26px -1px;}
-.ui_fixed ul li a .icon.recipe{background-position: -52px -1px; margin: 0 auto 5px;}
+.ui_fixed ul li a .icon.recipe{background-position: -52px -1px;}
 .ui_fixed ul li a .icon.user{height: 26px; background-position: -78px 0;}
 .ui_fixed ul li.on a{color: #333333;}
 .ui_fixed ul li.on a .icon.home{background-position: 0 -36px;}

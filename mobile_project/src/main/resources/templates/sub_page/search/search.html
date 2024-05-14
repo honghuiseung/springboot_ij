@@ -1,8 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layouts/layout_main}">
-<div class="conts_wrap" data-role="content">
+      layout:decorate="~{layouts/sub/layout_search}">
+<th:block layout:fragment="script">
+    <script>
+        $(function(){
+            //푸터 변경
+            var $footer = $('.ui_fixed ul li');
+            $footer.removeClass('on');
+            $footer.each(function(){
+                $footer.eq(1).addClass('on');
+                          //eq(바꿀 부분)
+            });
+        })
+    </script>
+</th:block>
+<div id="search_page" class="conts_wrap search" data-role="content" layout:fragment="content">
     <div class="sec">
         <div class="recent_wrap sec_width">
             <div class="tit_wrap">

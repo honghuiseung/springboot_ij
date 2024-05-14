@@ -10,13 +10,13 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Cart {
+public class Cart extends BaseEntity{
     @Id
     @Column(name="cart_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToOne //회원 엔티티와 일대일 매핑
+    @OneToOne(fetch = FetchType.LAZY) //회원 엔티티와 일대일 매핑
     @JoinColumn(name="member_id") //매핑할 외래키를 설정
     private Member member;
 }

@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/layout_main}">
-<div id="recipe_write_page" class="conts_wrap" data-role="content">
+<div id="recipe_write_page" class="conts_wrap" data-role="content" layout:fragment="content">
     <form action="#my_page" id="recipe_write_form" class="write_box" method="get" data-ajax="false">
         <div class="write_input">
             <div class="tit_bg"><p class="write_tit">레시피 제목</p></div>

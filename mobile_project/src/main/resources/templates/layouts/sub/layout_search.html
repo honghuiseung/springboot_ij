@@ -22,8 +22,8 @@
     <th:block layout:fragment="css"></th:block>
 </head>
 <body>
-<div id="main_layout" class="home" data-role="page" data-url="main_page" >
-    <div th:replace="~{fragments/header::header}"></div>
+<div id="main_layout" class="home" data-role="page">
+    <div th:replace="~{fragments/headers/header_search::header}"></div>
 
     <div layout:fragment="content" class="content"></div>
 
@@ -49,7 +49,7 @@
             삭제 하시겠습니까?
         </div>
         <div class="btn_wrap">
-            <a href="#" class="cancell" type="reset">취소</a>
+            <a href="#" class="cancel" type="reset">취소</a>
             <a href="#" class="check" type="submit">확인</a>
         </div>
     </div>
