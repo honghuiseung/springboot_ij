@@ -104,5 +104,4 @@ public class NoneMemberController {
         return "sub_page/search/product_detail";
     }
 
-
 }

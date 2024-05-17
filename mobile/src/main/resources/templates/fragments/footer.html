@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<div th:fragment="footer" class="ui_fixed" data-role="footer" data-position="fixed" data-tap-toggle="false">
+  <ul>
+    <li class="home on">
+      <a th:href="@{/}" class="ui-btn ui-corner-all" data-role="button" data-ajax="false"><p class="icon home"></p>홈</a>
+    </li>
+    <li class="search">
+      <a th:href="@{/sub/search}" class="ui-btn ui-corner-all" data-role="button" data-ajax="false"><p class="icon search"></p>검색</a>
+    </li>
+    <li class="recipe">
+      <a th:href="@{/sub/recipe}" class="ui-btn ui-corner-all" data-role="button" data-ajax="false"><p class="icon recipe"></p>레시피</a>
+    </li>
+    <li class="user">
+      <a href="#" class="ui-btn ui-corner-all popup" data-role="button" data-ajax="false" sec:authorize="isAnonymous()"><p class="icon user" ></p>MY</a>
+      <a href="/user/my" class="ui-btn ui-corner-all" data-role="button" data-ajax="false" sec:authorize="isAuthenticated()"><p class="icon user" ></p>MY</a>
+    </li>
+  </ul>
+</div><!--ui_fixed-->
+
+</html>
