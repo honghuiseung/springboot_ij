@@ -1,7 +1,7 @@
 package com.example.mobile.entity;
 
 import com.example.mobile.constant.Role;
-import com.example.mobile.dto.MobileFormDto;
+import com.example.mobile.dto.MemberFormDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,7 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Table(name = "mobile")
 @Getter @Setter
 @ToString
-public class Mobile {
+public class Member {
     @Id
     @Column(name = "mobile_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,8 +24,8 @@ public class Mobile {
     private String address;
     @Enumerated(EnumType.STRING)
     private Role role;
-    public static Mobile createMobile(MobileFormDto mobileFormDto, PasswordEncoder passwordEncoder){
-        Mobile mobile = new Mobile();
+    public static Member createMobile(MemberFormDto mobileFormDto, PasswordEncoder passwordEncoder){
+        Member mobile = new Member();
         mobile.setName(mobileFormDto.getName());
         mobile.setEmail(mobileFormDto.getEmail());
         mobile.setAddress(mobileFormDto.getAddress());

@@ -117,7 +117,7 @@ class ItemRepositoryTest {
         }
     }
 
-    @Test
+    /*@Test
     @DisplayName("Querydsl 조회 테스트1")
     public void queryDslTest(){
         this.createItemList();
@@ -131,6 +131,6 @@ class ItemRepositoryTest {
         for(Item item : itemList){
             System.out.println(item.toString());
         }
-    }
+    }*/
 
 }

@@ -1,7 +1,7 @@
 package com.example.mobile.service;
 
-import com.example.mobile.entity.Mobile;
-import com.example.mobile.repository.MobileRepository;
+import com.example.mobile.entity.Member;
+import com.example.mobile.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,20 +14,20 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @RequiredArgsConstructor
 public class MobileService implements UserDetailsService {
-    private final MobileRepository mobileRepository;
-    public Mobile saveMobile(Mobile mobile){
+    private final MemberRepository mobileRepository;
+    public Member saveMobile(Member mobile){
         validateDuplicateMobile(mobile);
         return mobileRepository.save(mobile);
     }
-    public void validateDuplicateMobile(Mobile mobile){
-        Mobile findMobile = mobileRepository.findByEmail(mobile.getEmail());
+    public void validateDuplicateMobile(Member mobile){
+        Member findMobile = mobileRepository.findByEmail(mobile.getEmail());
         if(findMobile != null){
             throw new IllegalStateException("이미 가입된 회원입니다.");
         }
     }
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Mobile mobile = mobileRepository.findByEmail(email);
+        Member mobile = mobileRepository.findByEmail(email);
         if(mobile == null){
             throw new UsernameNotFoundException(email);
         }

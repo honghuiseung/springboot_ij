@@ -1,7 +1,7 @@
 package com.example.mobile.controller;
 
-import com.example.mobile.dto.MobileFormDto;
-import com.example.mobile.entity.Mobile;
+import com.example.mobile.dto.MemberFormDto;
+import com.example.mobile.entity.Member;
 import com.example.mobile.service.MobileService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +24,7 @@ public class NoneMemberController {
     /*회원가입 페이지*/
     @GetMapping("/new")
     public String mobileForm(Model model){
-        model.addAttribute("mobileFormDto",new MobileFormDto());
+        model.addAttribute("mobileFormDto",new MemberFormDto());
         return "sub_page/login/join";
     }
 
@@ -36,12 +36,12 @@ public class NoneMemberController {
     }
 
     @PostMapping("/new")
-    public String newMobile(@Valid MobileFormDto mobileFormDto, BindingResult bindingResult, Model model){
+    public String newMobile(@Valid MemberFormDto mobileFormDto, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()){
             return "sub_page/login/join";
         }
         try{
-            Mobile mobile = Mobile.createMobile(mobileFormDto, passwordEncoder);
+            Member mobile = Member.createMobile(mobileFormDto, passwordEncoder);
             mobileService.saveMobile(mobile);
         }catch (IllegalStateException e){
             model.addAttribute("errorMessage",e.getMessage());
