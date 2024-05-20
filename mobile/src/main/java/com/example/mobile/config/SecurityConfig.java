@@ -32,7 +32,7 @@ public class SecurityConfig {
         //HttpServletRequest를 사용해서 적용
         .authorizeHttpRequests(auth -> auth
                 //permitAll() 모든 사용자 접근 가능
-                .requestMatchers("/sub/**","/images/**", "/", "/css/**", "/js/**", "/user/**").permitAll()
+                .requestMatchers("/sub/**","/images/**", "/", "/css/**", "/js/**", /*"/user/**",*/ "/err").permitAll()
                 ///admin 어드민 권한을 가져야지만 접근 가능
                 .requestMatchers("/admin/**").hasRole("ADMIN")
                 //제외한 나머지 경로들은 모두 인증하도록 설정

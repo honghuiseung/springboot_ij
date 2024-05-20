@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = "sub")
 public class NoneMemberController {
     private final MobileService mobileService;
+
     private final PasswordEncoder passwordEncoder;
 
     /*회원가입 페이지*/

@@ -48,9 +48,5 @@ public class MobileRepositoryTest {
     @DisplayName("@Query를 이용한 상품 조회 테스트")
     public void findByItemDetailByNative(){
         this.createItemList();
-        List<Member> itemList = mobileRepository.findByNameByEmail("aa@aa");
-        for(Member item : itemList){
-            System.out.println(item.toString());
-        }
     }
 }
