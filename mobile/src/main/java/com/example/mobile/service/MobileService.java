@@ -35,10 +35,13 @@ public class MobileService implements UserDetailsService {
         }
 
         UserDetails build = User.builder()
-                .username(mobile.getName())
+                .username(mobile.getEmail())
                 .password(mobile.getPassword())
                 .roles(mobile.getRole().toString())
                 .build();
         return build;
+    }
+    public String getNameByEmail(String email){
+        return mobileRepository.findByEmailByNative(email).getName();
     }
 }

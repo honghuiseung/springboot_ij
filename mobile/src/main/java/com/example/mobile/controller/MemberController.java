@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor
 @RequestMapping(value = "user")
 public class MemberController {
-
+    private final MobileService mobileService;
 
     @GetMapping("/my")
     public String my_page(Model model, @AuthenticationPrincipal User user){
-        model.addAttribute("nm",user.getUsername());
+        model.addAttribute("nm",mobileService.getNameByEmail(user.getUsername()));
 
         return "sub_page/my/my";
     }

@@ -1,7 +1,8 @@
-package com.example.mobile.repository;
+package com.example.mobile.service;
 
 import com.example.mobile.constant.Role;
 import com.example.mobile.entity.Member;
+import com.example.mobile.repository.MemberRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.junit.jupiter.api.DisplayName;
@@ -10,14 +11,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 
-import java.time.LocalDateTime;
-import java.util.List;
 
 @SpringBootTest
 @TestPropertySource(locations = "classpath:application-test.properties")
-public class MobileRepositoryTest {
+public class MobileServiceTest {
+
     @Autowired
-    MemberRepository memberRepository;
+    MemberRepository mobileRepository;
+
+    @Autowired
+    MobileService memberService;
 
     @PersistenceContext
     EntityManager em;
@@ -32,7 +35,7 @@ public class MobileRepositoryTest {
         item.setAddress("12");
         item.setRole(Role.ADMIN);
 
-        Member savedItem = memberRepository.save(item);
+        Member savedItem = mobileRepository.save(item);
         System.out.println(savedItem.toString());
     }
 
@@ -40,18 +43,19 @@ public class MobileRepositoryTest {
         for(int i = 1; i<=10; i++){
             Member item = new Member();
             item.setName("홍길동"+i);
-            item.setEmail("aa@aa");
-            item.setPassword("12341234a"+i);
-            item.setAddress("12a"+i);
+            item.setEmail("aa@aa"+(11-i));
+            item.setPassword("12341234a");
+            item.setAddress("12a");
 
-            Member savedItem = memberRepository.save(item);
+            Member savedItem = mobileRepository.save(item);
         }
     }
 
-    /*@Test
-    @DisplayName("@Query를 이용한 상품 조회 테스트")
-    public void findByItemDetailByNative(){
-        createItemList();
-        System.out.println(memberRepository.findByEmailByNative("aa@aa").getName());
-    }*/
+    @Test
+    @DisplayName("@Query를 이용한 멤버 조회 테스트")
+    public void findByEmailByNative(){
+        this.createItemList();
+        String item = memberService.getNameByEmail("aa@aa");
+        System.out.println(item);
+    }
 }
