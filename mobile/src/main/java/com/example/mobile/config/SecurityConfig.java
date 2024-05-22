@@ -1,6 +1,6 @@
 package com.example.mobile.config;
 
-import com.example.mobile.service.MobileService;
+import com.example.mobile.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,7 +15,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 public class SecurityConfig {
     @Autowired
-    MobileService mobileService;
+    MemberService memberService;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
@@ -27,7 +27,7 @@ public class SecurityConfig {
                 ).logout(logout -> logout
                 //로그 아웃 URL을 설정
                 .logoutRequestMatcher(new AntPathRequestMatcher("/sub/logout"))
-                .logoutSuccessUrl("/") //로그아웃 성공 시 이동할 URL을 설정
+                .logoutSuccessUrl("/:redirect/") //로그아웃 성공 시 이동할 URL을 설정
         )
         //HttpServletRequest를 사용해서 적용
         .authorizeHttpRequests(auth -> auth

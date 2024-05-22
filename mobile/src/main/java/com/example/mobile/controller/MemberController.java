@@ -1,7 +1,6 @@
 package com.example.mobile.controller;
 
-import com.example.mobile.repository.MemberRepository;
-import com.example.mobile.service.MobileService;
+import com.example.mobile.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
@@ -15,11 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor
 @RequestMapping(value = "user")
 public class MemberController {
-    private final MobileService mobileService;
+    private final MemberService memberService;
 
     @GetMapping("/my")
     public String my_page(Model model, @AuthenticationPrincipal User user){
-        model.addAttribute("nm",mobileService.getNameByEmail(user.getUsername()));
+        model.addAttribute("nm", memberService.getNameByEmail(user.getUsername()));
 
         return "sub_page/my/my";
     }

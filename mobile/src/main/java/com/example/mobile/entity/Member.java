@@ -24,7 +24,7 @@ public class Member {
     private String address;
     @Enumerated(EnumType.STRING)
     private Role role;
-    public static Member createMobile(MemberFormDto mobileFormDto, PasswordEncoder passwordEncoder){
+    public static Member createMember(MemberFormDto mobileFormDto, PasswordEncoder passwordEncoder){
         Member mobile = new Member();
         mobile.setName(mobileFormDto.getName());
         mobile.setEmail(mobileFormDto.getEmail());

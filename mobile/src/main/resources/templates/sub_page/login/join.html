@@ -2,11 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/sub/layout_login}">
-
 <th:block layout:fragment="script">
-  <script>
-        $(function(){
-            //푸터 변경
+  <script th:inline="javascript">
+    $(document).ready(function(){ //1) 설명
+        var errorMessage = [[${errorMessage}]];
+        if(errorMessage != null){
+            alert(errorMessage);
+        }
+        //푸터 변경
             var $footer = $('.ui_fixed ul li');
             $footer.removeClass('on');
             $footer.each(function(){
@@ -15,12 +18,12 @@
             });
             //헤더 변경
             $('.header .header_wrap .page_tit').text('회원가입');
-        })
-    </script>
+    });
+</script>
 </th:block>
 
 <div id="join_page" class="conts_wrap join" data-role="content" layout:fragment="content">
-  <form action="/sub/new" class="sec sec_width" role="form" method="post" th:object="${mobileFormDto}" data-ajax="false">
+  <form action="/sub/new" class="sec sec_width" role="form" method="post" th:object="${memberFormDto}" data-ajax="false">
     <fieldset class="user_input_wrap">
       <label th:for="name">이름</label>
       <input type="text" th:field="*{name}" name="join_user_name" id="join_user_name" class="user_input" placeholder="이름을 입력해 주세요."/>

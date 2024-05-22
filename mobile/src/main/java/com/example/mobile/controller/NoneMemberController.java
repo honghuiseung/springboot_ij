@@ -2,7 +2,7 @@ package com.example.mobile.controller;
 
 import com.example.mobile.dto.MemberFormDto;
 import com.example.mobile.entity.Member;
-import com.example.mobile.service.MobileService;
+import com.example.mobile.service.MemberService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
@@ -18,32 +18,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor
 @RequestMapping(value = "sub")
 public class NoneMemberController {
-    private final MobileService mobileService;
+    private final MemberService memberService;
 
     private final PasswordEncoder passwordEncoder;
 
     /*회원가입 페이지*/
     @GetMapping("/new")
-    public String mobileForm(Model model){
-        model.addAttribute("mobileFormDto",new MemberFormDto());
+    public String memberForm(Model model){
+        model.addAttribute("memberFormDto",new MemberFormDto());
         return "sub_page/login/join";
     }
 
     /*로그인 페이지*/
 
     @GetMapping("/login")
-    public String loginMobile(){
+    public String loginMember(){
         return "sub_page/login/login";
     }
 
     @PostMapping("/new")
-    public String newMobile(@Valid MemberFormDto mobileFormDto, BindingResult bindingResult, Model model){
+    public String newMember(@Valid MemberFormDto memberFormDto, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()){
             return "sub_page/login/join";
         }
         try{
-            Member mobile = Member.createMobile(mobileFormDto, passwordEncoder);
-            mobileService.saveMobile(mobile);
+            Member member = Member.createMember(memberFormDto, passwordEncoder);
+            memberService.saveMobile(member);
         }catch (IllegalStateException e){
             model.addAttribute("errorMessage",e.getMessage());
             return "sub_page/login/join";

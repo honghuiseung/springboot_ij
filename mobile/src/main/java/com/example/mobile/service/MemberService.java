@@ -7,18 +7,17 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class MobileService implements UserDetailsService {
+public class MemberService implements UserDetailsService {
     private final MemberRepository mobileRepository;
-    public Member saveMobile(Member mobile){
-        validateDuplicateMobile(mobile);
-        return mobileRepository.save(mobile);
+    public Member saveMobile(Member member){
+        validateDuplicateMobile(member);
+        return mobileRepository.save(member);
     }
     public void validateDuplicateMobile(Member mobile){
         Member findMobile = mobileRepository.findByEmail(mobile.getEmail());

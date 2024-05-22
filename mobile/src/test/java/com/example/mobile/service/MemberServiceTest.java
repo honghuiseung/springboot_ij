@@ -14,13 +14,13 @@ import org.springframework.test.context.TestPropertySource;
 
 @SpringBootTest
 @TestPropertySource(locations = "classpath:application-test.properties")
-public class MobileServiceTest {
+public class MemberServiceTest {
 
     @Autowired
     MemberRepository mobileRepository;
 
     @Autowired
-    MobileService memberService;
+    MemberService memberService;
 
     @PersistenceContext
     EntityManager em;
