@@ -4,7 +4,6 @@ import com.shop.dto.ItemFormDto;
 import com.shop.service.ItemService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import lombok.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -32,7 +31,7 @@ public class ItemController {
                           Model model, @RequestParam("itemImgFile") List<MultipartFile> itemImgFileList){
 
         if(bindingResult.hasErrors()){ //상품 등록시 필수 값이 없다면 다시 상품 등록 페이지로 전환
-            return "item/itemform";
+            return "item/itemForm";
         }
         
         //상품 등록 시 첫 번째 이미지가 없다면 에러 메시지와 함께 상품 등록 페이지로 전환
