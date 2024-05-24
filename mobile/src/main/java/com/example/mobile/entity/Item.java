@@ -6,12 +6,14 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name = "item")
 @Getter
 @Setter
 @ToString
-public class Item extends BaseEntity {
+public class Item extends BaseEntity implements Serializable {
     @Id
     @Column(name = "item_id")
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -4,11 +4,13 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name="item_img")
 @Getter
 @Setter
-public class ItemImg extends BaseEntity {
+public class ItemImg extends BaseEntity implements Serializable {
     @Id
     @Column(name="item_img_id")
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -29,18 +29,30 @@
         <div th:replace="~{fragments/footer::footer}"></div>
     </div>
 </div>
-<div id="delete_img">
+<div class="conts_wrap">
     <div class="alert_box">
         <div class="alert_text">
-            이미지를 <br/>
-            삭제 하시겠습니까?
+            로그인이 필요한 서비스입니다. <br/>
+            로그인 하시겠어요?
         </div>
         <div class="btn_wrap">
-            <a href="#" class="cancel" type="reset">취소</a>
-            <a href="#" class="check" type="submit">확인</a>
+            <a href="#main_page" class="cancel" type="reset">취소</a>
+            <a href="#login_page" class="check" type="submit">확인</a>
         </div>
     </div>
-</div><!-- delete_img -->
+    <div id="delete_img">
+        <div class="alert_box">
+            <div class="alert_text">
+                이미지를 <br/>
+                삭제 하시겠습니까?
+            </div>
+            <div class="btn_wrap">
+                <a href="#" class="cancel" type="reset">취소</a>
+                <a href="#" class="check" type="submit">확인</a>
+            </div>
+        </div>
+    </div><!-- delete_img -->
+</div>
 
 <script src="../js/jquery-1.11.1.min.js"></script>
 <script src="../js/jquery.mobile-1.4.5.min.js"></script>
