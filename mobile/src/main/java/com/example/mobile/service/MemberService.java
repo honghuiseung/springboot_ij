@@ -43,4 +43,18 @@ public class MemberService implements UserDetailsService {
     public String getNameByEmail(String email){
         return mobileRepository.findByEmailByNative(email).getName();
     }
+
+    public Member getMobile(String email){
+        Member mobile = mobileRepository.findByEmailByNative(email);
+        return mobile;
+    }
+
+    public void deleteByEmail(String email){
+        Member mobile = mobileRepository.findByEmailByNative(email);
+        mobileRepository.deleteById(mobile.getId());
+    }
+
+    public Member updateMobile(Member mobile){
+        return mobileRepository.save(mobile);
+    }
 }

@@ -46,7 +46,6 @@ public class ItemController {
             model.addAttribute("errorMessage", "상품 등록 중 에러가 발생하였습니다..");
             return "item/itemForm";
         }
-
         return "redirect:/"; //상품이 정상적으로 등록되었다면 메인 페이지로 이동
 
     }

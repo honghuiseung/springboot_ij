@@ -27,7 +27,7 @@ public class SecurityConfig {
                 ).logout(logout -> logout
                 //로그 아웃 URL을 설정
                 .logoutRequestMatcher(new AntPathRequestMatcher("/sub/logout"))
-                .logoutSuccessUrl("/:redirect/") //로그아웃 성공 시 이동할 URL을 설정
+                .logoutSuccessUrl("/") //로그아웃 성공 시 이동할 URL을 설정
         )
         //HttpServletRequest를 사용해서 적용
         .authorizeHttpRequests(auth -> auth

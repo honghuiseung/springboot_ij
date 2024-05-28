@@ -11,7 +11,7 @@ import java.util.UUID;
 @Log
 public class FileService {
     public String uploadFile(String uploadPath, String originalFileName, byte[] fileData) throws Exception{
-        UUID uuid = UUID.randomUUID(); //서로 다른 개케들을 구별하기 위해서 이름을 부여할 때 사용
+        UUID uuid = UUID.randomUUID(); //서로 다른 객체들을 구별하기 위해서 이름을 부여할 때 사용
         String extension = originalFileName.substring(originalFileName.lastIndexOf("."));
         String savedFileName = uuid.toString() + extension; //2)받은 값과 원래 파일의 이름의 확장자를 조합해서 저장될 파일 이름
         String fileUploadFullUrl = uploadPath + "/" +savedFileName;
