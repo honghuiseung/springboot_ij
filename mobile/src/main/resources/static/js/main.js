@@ -398,7 +398,7 @@ $(function(){
 		var arr_stoped = [];
 		
 		$push_product_btn.click(async function(){
-			var p_p_text = '{{product}} 상품 '+(count+2)+'개를 <br/> 장바구니에 담았습니다.'
+			var p_p_text = '삼각)뉴참치골드마요 상품 '+(count+2)+'개를 <br/> 장바구니에 담았습니다.'
 			$push_product.fadeIn()
 			arr_stoped.push(false)
 			count++;
